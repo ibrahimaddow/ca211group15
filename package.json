@@ -1,0 +1,21 @@
+{
+  "name": "contact_list_manage_by_mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mongoose": "^7.8.6",
+    "nodemon": "^3.1.9",
+    "sass": "^1.83.4"
+  }
+}
