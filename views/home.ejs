@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <title>
+        <%#=locals.title %>
+            Contact List Management
+    </title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <style>
+        .scroll-y {
+            overflow-y: scroll;
+            height: 500px;
+        }
+
+        .centerHeading {
+            text-align: center;
+            font-size: xx-large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron row">
+        <div class="col-md-6 scroll-y">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item centerHeading"> your Contacts </li>
+                <% for(let i of contact_lists) { %>
+                    <li class="list-group-item">
+                    <li class="list-group-item list-group-item-primary">
+                        <%= i.name %>
+                    </li>
+                    <li class="list-group-item list-group-item-danger">
+                        <%= i.phone %>
+                    </li>
+                    <li class="list-group-item"><button
+                            onclick="window.location.href='/delete_contact/?id=<%= i._id %>'"
+                            class="btn btn-danger">Delete</button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary"
+                            onclick="window.location.href='/edit_contact/<%= i._id %>'">
+                            Edit
+                        </button>
+                    </li>
+                    </li>
+
+                    <% } %>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <form action="/create_contact" method="post">
+                <div class="form-group">
+                    <label for="userName">Name:</label>
+                    <input type="text" class="form-control" id="userName" name="name" aria-describedby="userTooltip"
+                        placeholder="Enter Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPhone">Mobile No:</label>
+                    <input type="tel" class="form-control" id="userPhone" name="phone" aria-describedby="phone"
+                        placeholder="Enter your Mobile no." required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Add Contact</button>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
