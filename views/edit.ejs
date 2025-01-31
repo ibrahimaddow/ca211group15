@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit Contact</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <form action="/update_contact" method="post">
+            <div class="jumbotron">
+            
+                <div class="form-group">
+                    <label for="userName">Name:</label>
+                    <input type="text" class="form-control" id="userName" name="name" aria-describedby="userTooltip"
+                        placeholder="Enter Your Name" value="<%= edit_contact.name %>">
+                </div>
+                <div class="form-group">
+                    <label for="userPhone">Mobile No:</label>
+                    <input type="tel" class="form-control" id="userPhone" name="phone" aria-describedby="phone"
+                        placeholder="Enter your Mobile no." value="<%= edit_contact.phone %>">
+                </div>
+               <input type="hidden" name="id" value="<%= edit_contact.id %>" />
+                <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href='/update_contact'" >Update</button>
+            </div>
+            
+          </form>
+    </body>
+</html>
